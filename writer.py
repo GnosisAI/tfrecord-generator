@@ -35,6 +35,7 @@ class Writer():
                 supported. If PIL version 3.4.0 or newer is installed, "box" and
                 "hamming" are also supported. By default, "nearest" is used.
             tfrecord: String, the tfrecord file name to store data
+            num_copies: the number of random generated image from one sample
         """
         self.image_data_generator = image_data_generator
         self.target_size = tuple(target_size)
@@ -64,7 +65,7 @@ class Writer():
         self.num_copies = num_copies
 
     def write_tfrecord(self):
-        """write tfrecord file
+        """writes data to tfrecord file
         """
         # build batch of image data
         # self.filepaths is dynamic, is better to call it once outside the loop
